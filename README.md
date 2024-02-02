@@ -1,5 +1,5 @@
 # Awus036ach_Driver_Setup
-This script simplifies the installation of the AWUS036ach wireless adapter driver on openSUSE Tumbleweed, Kali Linux, Ubuntu, Chromebook. It automates the process, making it easier for users to set up their wireless adapters.
+This script simplifies the installation of the AWUS036ach wireless adapter driver on openSUSE Tumbleweed, Kali Linux, Ubuntu. It automates the process, making it easier for users to set up their wireless adapters.
 
 # AWUS036ach Driver Installation Script
 *Created by:* 7PiNz
@@ -9,7 +9,7 @@ This script simplifies the installation of the AWUS036ach wireless adapter drive
 
 ## Introduction
 
-This script is designed to guide you through the process of installing the driver for your AWUS036ach wireless adapter on openSUSE Tumbleweed, Kali Linux, Ubuntu, Chromebook. It automates the installation steps, making it easier for users to set up their wireless adapter.
+This script is designed to guide you through the process of installing the driver for your AWUS036ach wireless adapter on openSUSE Tumbleweed, Kali Linux, Ubuntu. It automates the installation steps, making it easier for users to set up their wireless adapter.
 
 ## Prerequisites
 
