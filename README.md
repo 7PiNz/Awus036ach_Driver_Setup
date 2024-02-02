@@ -1,5 +1,5 @@
 # Awus036ach_Driver_Setup
-This script simplifies the installation of the AWUS036ach wireless adapter driver on Linux systems. It automates the process, making it easier for users to set up their wireless adapters.
+This script simplifies the installation of the AWUS036ach wireless adapter driver on openSUSE Tumbleweed & Kali Linux. It automates the process, making it easier for users to set up their wireless adapters.
 
 # AWUS036ach Driver Installation Script
 *Created by:* 7PiNz
