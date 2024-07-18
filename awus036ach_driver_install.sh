@@ -47,10 +47,29 @@ update_system() {
 install_packages() {
     echo "STEP 2: Installing required packages for the driver installation..."
     echo "This includes dkms, git, build-essential, and linux headers."
+    KERNEL_VERSION=$(uname -r)
     if command -v apt-get &> /dev/null; then
-        apt-get install -y dkms git build-essential linux-headers-$(uname -r) | tee -a $LOG_FILE
+        apt-get install -y dkms git build-essential linux-headers-$KERNEL_VERSION | tee -a $LOG_FILE
+        if [ $? -ne 0 ]; then
+            echo "ERROR: Failed to install linux headers for kernel $KERNEL_VERSION."
+            echo "Attempting to install generic headers..."
+            apt-get install -y linux-headers-generic | tee -a $LOG_FILE
+            if [ $? -ne 0 ]; then
+                echo "ERROR: Failed to install generic linux headers. Please ensure the kernel headers for your current kernel version are available."
+                exit 1
+            fi
+        fi
     elif command -v zypper &> /dev/null; then
-        zypper install -y dkms git make gcc kernel-default-devel | tee -a $LOG_FILE
+        zypper install -y dkms git make gcc kernel-default-devel-$KERNEL_VERSION | tee -a $LOG_FILE
+        if [ $? -ne 0 ]; then
+            echo "ERROR: Failed to install kernel headers for kernel $KERNEL_VERSION."
+            echo "Attempting to install generic kernel headers..."
+            zypper install -y kernel-default-devel | tee -a $LOG_FILE
+            if [ $? -ne 0 ]; then
+                echo "ERROR: Failed to install generic kernel headers. Please ensure the kernel headers for your current kernel version are available."
+                exit 1
+            fi
+        fi
     else
         echo "Unsupported package manager. Please install the required packages manually."
         exit 1
@@ -118,5 +137,3 @@ echo "Created by: 7PiNz"
 echo "---------------------------------------------------------------"
 
 exit 0
-
-
